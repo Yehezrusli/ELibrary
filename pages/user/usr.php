@@ -164,11 +164,26 @@
 
 		#nav-header{
 			background-color:  rgb(124, 120, 120);
-			height: 50px;
+			height: 70px;
+			margin: 0px;
 		}
 		.nav-content{
 			background-color:  rgb(184, 180, 180);
-			height: 50px;
+			height: 70px;
+			margin: 0px;
+			float: top;
+		}
+		h1, h3{
+			margin: auto;
+			text-align: center;
+			vertical-align: middle;
+			line-height: 70px; 
+		}
+		.scrollable{
+			overflow-y: scroll;
+			width: 100%;
+			background-color:  rgb(177, 177, 192);
+			height: 80%;
 		}
 		</style>
 	</head>
@@ -204,13 +219,25 @@
 		</div>
 		<div class="wrap">
 			<div class="nav-bar">
-				<div id="nav-header">a
+				<div id="nav-header">
+					<a href=""><h1>Menu</h1></a>
 				</div>
-				<div class="nav-content">a
+				<div class="nav-content">
+					<a href=""><h3>Book List</h3></a>
+				</div>
+				<div class="nav-content">
+					<a href=""><h3>Borrowing History</h3></a>
+				</div>
+				<div class="nav-content">
+					<a href=""><h3>Download Journals</h3></a>
 				</div>
 			</div>
 			<div class="content">
-			
+				<h1>Welcome to E-Library</h1>
+				<div class="scrollable">
+					dolor amet ipsum lalalaala
+				</div>
+				2018 kikil-jeye
 			</div>
 		</div>
 		<?php
