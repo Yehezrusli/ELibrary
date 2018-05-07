@@ -1,5 +1,6 @@
 <?php
 	include("../../connection.php");
+	$should_show_modal = 0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +31,7 @@
 			}
 
 			html, body{
-				background-color: rgb(9, 9, 68);
+				background-color: rgb(53, 50, 50);
 				height: 100%;
 			}
 
@@ -85,12 +86,10 @@
 			
 			p{
 				font-size: 20px;
-				color: red;
 				margin-left: 10px;
 			}
 
 			.modal {
-            display: none;
             position: fixed;
             z-index: 1;
             padding-top: 100px;
@@ -99,16 +98,17 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(54, 58, 58);
-            background-color: rgba(54, 58, 58, 0.3);
+            background-color: rgb(204, 198, 198);
+			background-color:  rgba(204, 198, 198, 0.3);
         }
 
         .modal-content {
-            background-color: rgba(56, 141, 141, 0.5);
+            background-color: rgba(204, 198, 198);
             margin: auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%;
+			width: 80%;
+			height: 30%;
         }
 
         .close {
@@ -117,7 +117,6 @@
             font-size: 28px;
             font-weight: bold;
         }
-
         .close:hover,
         .close:focus {
             color: #000;
@@ -146,41 +145,69 @@
 		</form>
 			<?php				
 				if(isset($_POST['register'])){
-					$uname = $_POST['uname'];
-					$pass = $_POST['pass'];
-					$hidepass = md5("$pass");
-					$cpass = $_POST['cpass']; 
-					$nama = $_POST['name']; 
-					$phone = $_POST['phone']; 
-					$alamat = $_POST['adress'];
+					if(isset($_POST['uname']) && !is_null($_POST['uname'])){
+						$uname = $_POST['uname'];
+					}
+					if(isset($_POST['pass']) && !is_null($_POST['pass'])){
+						$pass = $_POST['pass'];
+						$hidepass = md5("$pass");
+					}
+					if(isset($_POST['cpass']) && !is_null($_POST['cpass'])){
+						$cpass = $_POST['cpass'];
+					}
+					if(isset($_POST['name']) && !is_null($_POST['name'])){
+						$nama = $_POST['name'];
+					}
+					if(isset($_POST['phone']) && !is_null($_POST['phone'])){
+						$phone = $_POST['phone'];
+					}
+					if(isset($_POST['adress']) && !is_null($_POST['adress'])){
+						$alamat = $_POST['adress'];
 
 					if($pass != $cpass){
 						echo "<p>Password does not match</p>";
 					}else{
-						echo "masuk";
 						$query = "INSERT INTO anggota(username, pass, nama, telepon, alamat) VALUES ('$uname', '$hidepass', '$nama', '$phone', '$alamat')";
 						if($con->query($query)){
-							echo "sukses";
+							$should_show_modal=1;
 						}
+						else{
+							$should_show_modal=0;
+						}
+						
 					}
 				}
+			}
 
 				if(isset($_POST['cancel'])){
-					header("Location:../../index.php");
+					//header("Location:../../index.php");
+					$should_show_modal = 0;
 				}
 				?>
 		</div>
-
+		
 		<div id="myModal" class="modal">
 			<div class="modal-content">
 				<span class="close" onclick="none()">&times;</span>
-				<p id="test"></p>
+				<?php
+				echo '<p>You have registered as '.$nama.' </p>'
+				?>
 				<p>Please login to continue.</p>
-				<button onclick="none()">CANCEL</button>
+				<form action="" method="post">
+				<input type="submit" name="login" id="button" onsubmit="blok()" value="LOGIN">
+				<input type="submit" name="cancel" id="button" value="CANCEL">
+				</form>
 			</div>
 		</div>
+		<?php
+			if(isset($_POST['login'])){
+				header("Location:login.php");
+				$should_show_modal = 0;
+			}
+		?>
 	</body>
-
+	
+	<?php if($should_show_modal == 1): ?>
 	<script>
         var modal = document.getElementById('myModal');
         var btn = document.getElementById("myBtn");
@@ -201,5 +228,6 @@
                 modal.style.display = "none";
             }
         }
-    </script>
+	</script>
+	<?php endif; ?>
 </html>
