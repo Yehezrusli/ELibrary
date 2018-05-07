@@ -1,6 +1,6 @@
 <?php
 	include("../../connection.php");
-	$should_show_modal = 0;
+	$should_show_modal = '0';
 ?>
 <!DOCTYPE html>
 <html>
@@ -169,10 +169,10 @@
 					}else{
 						$query = "INSERT INTO anggota(username, pass, nama, telepon, alamat) VALUES ('$uname', '$hidepass', '$nama', '$phone', '$alamat')";
 						if($con->query($query)){
-							$should_show_modal=1;
+							$should_show_modal='1';
 						}
 						else{
-							$should_show_modal=0;
+							$should_show_modal='0';
 						}
 						
 					}
@@ -180,54 +180,32 @@
 			}
 
 				if(isset($_POST['cancel'])){
-					//header("Location:../../index.php");
-					$should_show_modal = 0;
+					header("Location:../../index.php");
+					$should_show_modal = '0';
 				}
 				?>
 		</div>
-		
-		<div id="myModal" class="modal">
-			<div class="modal-content">
-				<span class="close" onclick="none()">&times;</span>
-				<?php
-				echo '<p>You have registered as '.$nama.' </p>'
-				?>
-				<p>Please login to continue.</p>
-				<form action="" method="post">
-				<input type="submit" name="login" id="button" onsubmit="blok()" value="LOGIN">
-				<input type="submit" name="cancel" id="button" value="CANCEL">
-				</form>
+		<?php if($should_show_modal == '1'): ?>
+			<div id="myModal" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="none()">&times;</span>
+					<?php
+					echo '<p>You have registered as '.$nama.' </p>'
+					?>
+					<p>Please login to continue.</p>
+					<form action="" method="post">
+					<input type="submit" name="login" id="button" onsubmit="blok()" value="LOGIN">
+					<input type="submit" name="cancel" id="button" value="CANCEL">
+					</form>
+				</div>
 			</div>
-		</div>
+		<?php endif; ?>
 		<?php
 			if(isset($_POST['login'])){
 				header("Location:login.php");
-				$should_show_modal = 0;
+				$should_show_modal = '0';
 			}
 		?>
 	</body>
 	
-	<?php if($should_show_modal == 1): ?>
-	<script>
-        var modal = document.getElementById('myModal');
-        var btn = document.getElementById("myBtn");
-        var span = document.getElementsByClassName("close")[0];
-
-        function blok() {
-            modal.style.display = "block";
-            var text = "You have login as yehez";
-            document.getElementById("test").innerHTML = text;
-        }
-
-        function none() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-	</script>
-	<?php endif; ?>
 </html>
