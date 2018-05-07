@@ -122,12 +122,28 @@
             color: #000;
             text-decoration: none;
             cursor: pointer;
-        }
+		}
+
+		#text{
+			color: white;
+			position: absolute;
+			font-size: 55px;
+
+		}
+		#textarea{
+			margin-top: 10px;
+			width: 15%;
+			margin-right: auto;
+			margin-left: auto;
+		}
 		</style>
 	</head>
 	<body>
 		<!-- CONTENT -->
 		<div id="image-box">
+			<div id="textarea">
+				<p id="text">e-Library</p>
+			</div>
 			<img src="../../img/banner2.jpg" class="header">
 		</div>
 
@@ -145,23 +161,23 @@
 		</form>
 			<?php				
 				if(isset($_POST['register'])){
-					if(isset($_POST['uname']) && !is_null($_POST['uname'])){
+					if(isset($_POST['uname']) && !empty($_POST['uname'])){
 						$uname = $_POST['uname'];
 					}
-					if(isset($_POST['pass']) && !is_null($_POST['pass'])){
+					if(isset($_POST['pass']) && !empty($_POST['pass'])){
 						$pass = $_POST['pass'];
 						$hidepass = md5("$pass");
 					}
-					if(isset($_POST['cpass']) && !is_null($_POST['cpass'])){
+					if(isset($_POST['cpass']) && !empty($_POST['cpass'])){
 						$cpass = $_POST['cpass'];
 					}
-					if(isset($_POST['name']) && !is_null($_POST['name'])){
+					if(isset($_POST['name']) && !empty($_POST['name'])){
 						$nama = $_POST['name'];
 					}
-					if(isset($_POST['phone']) && !is_null($_POST['phone'])){
+					if(isset($_POST['phone']) && !empty($_POST['phone'])){
 						$phone = $_POST['phone'];
 					}
-					if(isset($_POST['adress']) && !is_null($_POST['adress'])){
+					if(isset($_POST['adress']) && !empty($_POST['adress'])){
 						$alamat = $_POST['adress'];
 
 					if($pass != $cpass){

@@ -1,4 +1,6 @@
-<?php  ?>
+<?php
+	include("../../connection.php");
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -122,11 +124,26 @@
             text-decoration: none;
             cursor: pointer;
 		}
+		#text{
+			color: white;
+			position: absolute;
+			font-size: 55px;
+
+		}
+		#textarea{
+			margin-top: 10px;
+			width: 15%;
+			margin-right: auto;
+			margin-left: auto;
+		}
 		</style>
 	</head>
 	<body>
 		<!-- CONTENT -->
 		<div id="image-box">
+			<div id="textarea">
+				<p id="text">e-Library</p>
+			</div>
 			<img src="../../img/banner2.jpg" class="header">
 		</div>
 		<div id="login">
@@ -141,6 +158,33 @@
 		<?php
 			if(isset($_POST['cancel'])){
 				header("Location:../../index.php");
+			}
+			
+			if(isset($_POST['login'])){
+				if(isset($_POST['uname'])){
+					$uname = $_POST['uname'];
+				}
+				if(isset($_POST['pass'])){
+					$pass = $_POST['pass'];
+				}
+				$query = "SELECT pass FROM anggota WHERE username = '$uname'";
+				$result = $con->query($query);
+
+				if(!isset($uname) || empty($uname)){
+					echo 'Please enter your username and password';
+				} else if(!isset($pass) || empty($pass)){
+					echo 'Please enter your username and password';
+				} else if($result->num_rows == 0){
+					echo 'WRONG USERNAME';
+				} else{
+					while($row = $result->fetch_array()){
+						if($row['pass'] == md5("$pass")){
+							echo "berhasi berhasil berhasil Hore";
+						}else{
+							echo "Wrong Password";
+						}
+					}
+				}
 			}
 		?>
 	</body>
