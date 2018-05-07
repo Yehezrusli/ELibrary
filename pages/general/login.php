@@ -38,27 +38,28 @@
 				margin-top: 20px;
 				background-color:  rgb(204, 198, 198);
 				width: 40%;
-				height: 30%;
+				height: inherit;
 				margin-left: auto;
 				margin-right: auto;
+				padding: 10px;
 			}
 
 			input[type=text] {
-				margin: 10px;
+				margin: 0px;
 				margin-top: 10px;
 				margin-bottom: 10px;
-				width: 97%;
-				height: 40px;
+				width: 100%;
+				height: 20%;
 				padding-left: 10px;
 				font-size: 20px;
 			}
 
 			input[type=password] {
-				margin: 10px;
+				margin: 0px;
 				margin-top: 10px;
 				margin-bottom: 10px;
-				width: 97%;
-				height: 40px;
+				width: 100%;
+				height: 20%;
 				padding-left: 10px;
 				font-size: 20px;
 			}
@@ -71,71 +72,45 @@
 				background-color : black;
 				color: white;
 				margin-left: 10px;
-				font-size: 18px;
+				font-size: 100%;
 				padding: 5px;
 				padding-left: 10px;
 				padding-right: 10px;	
 			}
 
 			input[type=submit] {
-            width: 100px;
-			height: 40px;
+            width: 20%;
+			height: 20%;
 			margin: 0;
 			}
 			
 			p{
 				font-size: 20px;
 				color: red;
-				margin-left: 10px;
+				margin: 0;
 			}
 
-			.modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            padding-top: 100px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(54, 58, 58);
-            background-color: rgba(54, 58, 58, 0.3);
-        }
+			#text{
+				color: white;
+				position: absolute;
+				font-size: 400%;
+				margin: 0;
+				margin-top: 2%;
+			}
+			#textarea{
+				width: 20%;
+				height: 20%;
+				margin-right: auto;
+				margin-left: auto;
+			}
 
-        .modal-content {
-            background-color: rgba(56, 141, 141, 0.5);
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
+			.exception{
+				margin-left: auto;
+				margin-right: auto;
+				display: table;
+				
+			}
 
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-		}
-		#text{
-			color: white;
-			position: absolute;
-			font-size: 55px;
-
-		}
-		#textarea{
-			margin-top: 10px;
-			width: 15%;
-			margin-right: auto;
-			margin-left: auto;
-		}
 		</style>
 	</head>
 	<body>
@@ -154,38 +129,49 @@
 				<input type="submit" name="login" id="button" onsubmit="blok()" value="LOGIN">
 				<input type="submit" name="cancel" id="button" value="CANCEL">
 			</form>
-		</div>
-		<?php
-			if(isset($_POST['cancel'])){
-				header("Location:../../index.php");
-			}
-			
-			if(isset($_POST['login'])){
-				if(isset($_POST['uname'])){
-					$uname = $_POST['uname'];
-				}
-				if(isset($_POST['pass'])){
-					$pass = $_POST['pass'];
-				}
-				$query = "SELECT pass FROM anggota WHERE username = '$uname'";
-				$result = $con->query($query);
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="exception">
+				<?php
+					session_start();
+					if(isset($_POST['cancel'])){
+						header("Location:../../index.php");
+					}
+					
+					if(isset($_POST['login'])){
+						if(isset($_POST['uname'])){
+							$uname = $_POST['uname'];
+						}
+						if(isset($_POST['pass'])){
+							$pass = $_POST['pass'];
+						}
+						$query = "SELECT pass FROM anggota WHERE username = '$uname'";
+						$result = $con->query($query);
 
-				if(!isset($uname) || empty($uname)){
-					echo 'Please enter your username and password';
-				} else if(!isset($pass) || empty($pass)){
-					echo 'Please enter your username and password';
-				} else if($result->num_rows == 0){
-					echo 'WRONG USERNAME';
-				} else{
-					while($row = $result->fetch_array()){
-						if($row['pass'] == md5("$pass")){
-							echo "berhasi berhasil berhasil Hore";
-						}else{
-							echo "Wrong Password";
+						if(!isset($uname) || empty($uname)){
+							echo '<p>Please enter your username and password</p>';
+						} else if(!isset($pass) || empty($pass)){
+							echo '<p>Please enter your username and password</p>';
+						} else if($result->num_rows == 0){
+							echo '<p>WRONG USERNAME</p>';
+						} else{
+							while($row = $result->fetch_array()){
+								if($row['pass'] == md5("$pass")){
+									$_SESSION['uname'] = $uname;
+									header("Location:../user/usr.php");
+								}else{
+									echo "<p>Wrong Password</p>";
+								}
+							}
 						}
 					}
-				}
-			}
-		?>
+				?>
+			</div>
+		</div>
+
+		
 	</body>
 </html>

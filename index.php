@@ -16,10 +16,11 @@
 			.w3-theme-d1{
 				color: #fff !important;
 				background-color: #456185 !important;
-				font-size: 45px;
+				font-size: 200%;
 			}
-			#temp{
-				margin-left: 38%;
+			.temp{
+				width: 25%;
+				margin: auto;
 			}
 		</style>
 	</head>
@@ -30,8 +31,10 @@
 				<img src="img/banner.jpg" class="header">
 			</div>
 			<div class="w3-theme-l2">
-				<input type="button" class="w3-theme-d1" id="temp" value="SIGN UP" onclick="window.location='pages/general/signup.php';">
-				<input type="button" class="w3-theme-d1" value="LOGIN" onclick="window.location='pages/general/login.php';">
+				<div class="temp">	
+					<input type="button" class="w3-theme-d1" value="SIGN UP" onclick="window.location='pages/general/signup.php';">
+					<input type="button" class="w3-theme-d1" value="LOGIN" onclick="window.location='pages/general/login.php';">
+				</div>
 			</div>
 		</div>
 	</body>

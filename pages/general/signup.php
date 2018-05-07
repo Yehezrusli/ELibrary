@@ -39,27 +39,28 @@
 				margin-top: 20px;
 				background-color:  rgb(204, 198, 198);
 				width: 40%;
-				height: 100%;
+				height: inherit;
 				margin-left: auto;
 				margin-right: auto;
+				padding: 10px;
 			}
 
 			input[type=text] {
-				margin: 10px;
+				margin: 0px;
 				margin-top: 10px;
 				margin-bottom: 10px;
-				width: 97%;
-				height: 40px;
+				width: 100%;
+				height: 20%;
 				padding-left: 10px;
 				font-size: 20px;
 			}
 
 			input[type=password] {
-				margin: 10px;
+				margin: 0px;
 				margin-top: 10px;
 				margin-bottom: 10px;
-				width: 97%;
-				height: 40px;
+				width: 100%;
+				height: 20%;
 				padding-left: 10px;
 				font-size: 20px;
 			}
@@ -72,16 +73,16 @@
 				background-color : black;
 				color: white;
 				margin-left: 10px;
-				font-size: 18px;
+				font-size: 100%;
 				padding: 5px;
 				padding-left: 10px;
 				padding-right: 10px;	
 			}
 
 			input[type=submit] {
-            width: 100px;
-			height: 40px;
-			margin: 0;
+				width: 20%;
+				height: 20%;
+				margin: 0;
 			}
 			
 			p{
@@ -127,12 +128,13 @@
 		#text{
 			color: white;
 			position: absolute;
-			font-size: 55px;
-
+			font-size: 400%;
+			margin: 0;
+			margin-top: 2%;
 		}
 		#textarea{
-			margin-top: 10px;
-			width: 15%;
+			width: 20%;
+			height: 20%;
 			margin-right: auto;
 			margin-left: auto;
 		}
