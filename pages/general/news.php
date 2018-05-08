@@ -129,7 +129,7 @@
 			float: right;
 			
 		}
-		li{
+		#list-header{
 			display: inline-block;
 			padding: 5px;
 		}
@@ -212,7 +212,7 @@
 			padding0px;	
 		}
 
-		ol {
+		ul {
 			list-style-type: circle;
 		}
 
@@ -221,7 +221,6 @@
 			margin: 0;
 			padding: 0;
 			list-style-type: square;
-
 		}
 
 		#about-us{
@@ -244,19 +243,19 @@
 				}
 			?>
 			<div class="top-nav">
-				<li><a href="logout.php"><i class="fa fa-sign-out"></i></a></li>
+				<li id="list-header"><a href="logout.php"><i class="fa fa-sign-out"></i></a></li>
 			</div>
 			<div class="top-nav">
-				<li><a href="profile.php"><i class="fa fa-user"></i></a></li>
+				<li id="list-header"><a href="profile.php"><i class="fa fa-user"></i></a></li>
 			</div>
 			<div class="top-nav">
-				<li><a href=""><i class="fa fa-envelope"></i></a></li>
+				<li id="list-header"><a href=""><i class="fa fa-envelope"></i></a></li>
 			</div>
 			<div class="top-nav" style="background-color: blue; color: white;">
-				<li><a href="news.php"><i class="fa fa-newspaper-o"></i></a></li>
+				<li id="list-header"><a href="news.php"><i class="fa fa-newspaper-o"></i></a></li>
 			</div>
 			<div class="top-nav">
-				<li><a href="../user/usr.php"><i class="fa fa-home"></i></a></li>
+				<li id="list-header"><a href="../user/usr.php"><i class="fa fa-home"></i></a></li>
 			</div>
 		</div>
 		<div class="wrap">
@@ -288,13 +287,13 @@
 						anti-establishment agenda - to act as Mr Trump's campaign chief.
 						Meanwhile, in the president-elect's first interview, with US broadcaster CBS, Mr Trump said:
 					</p>
-					<ol style="list-style-type: circle;">
+					<ul type = "circle">
 						<li id="list">He would deport or jail up to three million illegal migrants with criminal links</li><br>
 						<li id="list">Future Supreme Court nominees would be "pro-life" - meaning they oppose abortion - and defend the 
 						constitutional right to bear arms</li><br>
 						<li id="list">He will not seek to overturn the legalisation of same-sex marriage</li><br>
 						<li id="list">He will forgo the president's $400,000 salary, taking $1 a year instead</li><br>
-					</ol>
+					</ul>
 					
 					<p id="isi-content"> 
 						In a statement released by his campaign, Mr Trump described Mr Priebus and Mr Bannon as "highly qualified 

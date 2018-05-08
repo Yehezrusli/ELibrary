@@ -93,7 +93,7 @@
 			#text{
 				color: white;
 				position: absolute;
-				font-size: 400%;
+				font-size: 4vw;
 				margin: 0;
 				margin-top: 2%;
 			}

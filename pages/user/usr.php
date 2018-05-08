@@ -215,11 +215,27 @@
 		#about-us{
 			margin-left: 10px;
 		}
+		#text{
+			color: white;
+			position: absolute;
+			font-size: 4vw;
+			margin: 0;
+			margin-top: 2%;
+		}
+		#textarea{
+			width: 20%;
+			height: 20%;
+			margin-right: auto;
+			margin-left: auto;
+		}		
 		</style>
 	</head>
 	<body>
 		<!-- CONTENT -->
 		<div id="image-box">
+			<div id="textarea">
+				<p id="text">e-Library</p>
+			</div>
 			<img src="../../img/banner2.jpg" class="header">
 		</div>
 

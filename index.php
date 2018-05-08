@@ -19,7 +19,7 @@
 				font-size: 200%;
 			}
 			.temp{
-				width: 25%;
+				width: 16%;
 				margin: auto;
 			}
 		</style>
