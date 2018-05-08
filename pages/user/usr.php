@@ -207,7 +207,14 @@
 			margin: 0px;
 		}
 
+		#isi-content{
+			margin:0px;
+			padding0px;	
+		}
 
+		#about-us{
+			margin-left: 10px;
+		}
 		</style>
 	</head>
 	<body>
@@ -225,19 +232,19 @@
 				}
 			?>
 			<div class="top-nav">
-				<li><a href=""><i class="fa fa-sign-out"></i></a></li>
+				<li><a href="../general/logout.php"><i class="fa fa-sign-out"></i></a></li>
 			</div>
 			<div class="top-nav">
-				<li><a href=""><i class="fa fa-user"></i></a></li>
+				<li><a href="../general/profile.php"><i class="fa fa-user"></i></a></li>
 			</div>
 			<div class="top-nav">
 				<li><a href=""><i class="fa fa-envelope"></i></a></li>
 			</div>
 			<div class="top-nav">
-				<li><a href=""><i class="fa fa-newspaper-o"></i></a></li>
+				<li><a href="../general/news.php"><i class="fa fa-newspaper-o"></i></a></li>
 			</div>
-			<div class="top-nav" style="background-color: blue;">
-				<li><a href=""><i class="fa fa-home"></i></a></li>
+			<div class="top-nav" style="background-color: blue; color: white;">
+				<li><a href="../user/usr.php"><i class="fa fa-home"></i></a></li>
 			</div>
 		</div>
 		<div class="wrap">
@@ -258,7 +265,12 @@
 			<div class="content">
 				<h1>Welcome to E-Library</h1>
 				<div class="scrollable">
-					dolor amet ipsum lalalaala
+					<h2 style="text-align: left; margin-left: 10px;">About Us</h2>
+					<div id="about-us">
+					<p id="isi-content">eLibrary is a simple library web where you can download jurnals for free and search the books you need. You were automatically registered as a member when you sign up.
+					Look for the books you need in the book list before you come to our library and borrow the books. We also provide you with today's news, just click the newspaper icon.
+					If you have any question, please contact us by e-mail(click the message icon).</p>
+					</div>
 				</div>
 				2018 kikil-jeye
 			</div>
