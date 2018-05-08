@@ -89,38 +89,6 @@
 			height: 40px;
 			margin: 0;
 			}
-			
-			p{
-				font-size: 20px;
-				margin-left: 10px;
-				display: inline;
-			}
-
-			.modal {
-            position: fixed;
-            z-index: 1;
-            padding-top: 100px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(204, 198, 198);
-			background-color:  rgba(204, 198, 198, 0.3);
-        }
-
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
 
 		.top-nav {
 			margin: 5px;
