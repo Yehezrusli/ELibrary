@@ -89,6 +89,7 @@
 			height: 40px;
 			margin: 0;
 			}
+<<<<<<< HEAD
 			
 			p{
 				font-size: 20px;
@@ -122,6 +123,8 @@
             text-decoration: none;
             cursor: pointer;
         }
+=======
+>>>>>>> b40edd4769935e4d3cc900bf8c9d3cd3a0e39365
 
 		.top-nav {
 			margin: 0;
