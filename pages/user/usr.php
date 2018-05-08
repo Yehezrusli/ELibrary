@@ -2,9 +2,6 @@
 	include("../../connection.php");
 	session_start();
 	$uname = $_SESSION['uname'];
-	session_unset();
-	session_destroy();
-	setcookie('uname', $uname, time()+(86400*15), "usr.php");
 	$query = "SELECT nama FROM anggota WHERE username = '$uname'"
 	
 ?>
@@ -185,6 +182,10 @@
 			background-color:  rgb(177, 177, 192);
 			height: 80%;
 		}
+
+		#logged{
+			margin-top: 1%;
+		}
 		</style>
 	</head>
 	<body>
@@ -197,7 +198,7 @@
 			<?php
 				if($res = $con->query($query)){
 					while($row = $res->fetch_array()){ 
-						echo "<p>You are logged in as ".$row['nama']."</p>";
+						echo '<p id="logged">You are logged in as '.$row['nama']."</p>";
 					}
 				}
 			?>
