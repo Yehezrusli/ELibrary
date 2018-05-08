@@ -40,8 +40,8 @@
 			}
 
 			#signup{
-				margin-top: 20px;
-				margin-bottom: 20px;
+				margin-top: 10px;
+				margin-bottom: 10px;
 				background-color:  rgb(204, 198, 198);
 				width: 99%;
 				box-shadow: 10px 10px 5px black;
@@ -93,6 +93,7 @@
 			p{
 				font-size: 20px;
 				margin-left: 10px;
+				padding-top: 1%;
 				display: inline;
 			}
 
@@ -123,18 +124,17 @@
         }
 
 		.top-nav {
-			margin: 5px;
-			margin-left: 10px;
-			margin-right: 10px;
+			margin: 0;
 			font-size: 20px;
 			float: right;
 			
 		}
 		li{
 			display: inline-block;
+			padding: 5px;
 		}
 		li a:hover{
-			padding: 15px;
+			padding: 20px;
 			background-color: #5555ff;
 		}
 
@@ -144,6 +144,11 @@
 			margin: 20px 0px 20px 1%;
 			background-color:  rgb(204, 198, 198);
 			float: left;
+		}
+		a{
+			padding-left: 10px;
+			padding-right: 10px;
+			text-decoration: none;
 		}
 
 		.wrap{
@@ -166,16 +171,24 @@
 		}
 		.nav-content{
 			background-color:  rgb(184, 180, 180);
-			height: 70px;
 			margin: 0px;
+			padding-top: 5px;
 			float: top;
+			border: 0.3px solid;
 		}
-		h1, h3{
-			margin: auto;
+		h1{
+			margin: 0px;
 			text-align: center;
-			vertical-align: middle;
 			line-height: 70px; 
+			padding:0px;
 		}
+
+		h3{
+			margin: 0px;
+			padding: 0px;
+			text-align: center;
+		}
+
 		.scrollable{
 			overflow-y: scroll;
 			width: 100%;
@@ -186,6 +199,13 @@
 		#logged{
 			margin-top: 1%;
 		}
+
+		#temp{
+			padding:0px;
+			margin: 0px;
+		}
+
+
 		</style>
 	</head>
 	<body>
@@ -214,23 +234,23 @@
 			<div class="top-nav">
 				<li><a href=""><i class="fa fa-newspaper-o"></i></a></li>
 			</div>
-			<div class="top-nav">
+			<div class="top-nav" style="background-color: blue;">
 				<li><a href=""><i class="fa fa-home"></i></a></li>
 			</div>
 		</div>
 		<div class="wrap">
 			<div class="nav-bar">
 				<div id="nav-header">
-					<a href=""><h1>Menu</h1></a>
+					<h1>Menu</h1>
 				</div>
 				<div class="nav-content">
-					<a href=""><h3>Book List</h3></a>
+					<a id="temp" href=""><h3>Book List</h3></a>
 				</div>
 				<div class="nav-content">
-					<a href=""><h3>Borrowing History</h3></a>
+					<a id="temp" href=""><h3>Borrowing History</h3></a>
 				</div>
 				<div class="nav-content">
-					<a href=""><h3>Download Journals</h3></a>
+					<a id="temp" href=""><h3>Download Journals</h3></a>
 				</div>
 			</div>
 			<div class="content">
@@ -241,11 +261,5 @@
 				2018 kikil-jeye
 			</div>
 		</div>
-		<?php
-			if(isset($_POST['login'])){
-				header("Location:login.php");
-				$should_show_modal = 0;
-			}
-		?>
 	</body>
 </html>
