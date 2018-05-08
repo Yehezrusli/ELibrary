@@ -1,5 +1,8 @@
 <?php
-
+	include("../../connection.php");
+	session_start();
+	$uname = $_SESSION['uname'];
+	$query = "SELECT nama FROM anggota WHERE username = '$uname'"
 ?>
 <!DOCTYPE html>
 <html>
@@ -164,11 +167,11 @@
 
 		<div id="signup">
 			<?php
-				// if($res = $con->query($query)){
-				// 	while($row = $res->fetch_array()){ 
-				// 		echo "<p>You are logged in as ".$row['nama']."</p>";
-				// 	}
-				// }
+				if($res = $con->query($query)){
+					while($row = $res->fetch_array()){ 
+						echo "<p>You are logged in as ".$row['nama']."</p>";
+					}
+				}
 			?>
 			<div class="top-nav">
 				<li><a href=""><i class="fa fa-sign-out"></i></a></li>
