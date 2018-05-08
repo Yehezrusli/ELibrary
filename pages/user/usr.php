@@ -89,7 +89,6 @@
 			height: 40px;
 			margin: 0;
 			}
-<<<<<<< HEAD
 			
 			p{
 				font-size: 20px;
@@ -123,8 +122,6 @@
             text-decoration: none;
             cursor: pointer;
         }
-=======
->>>>>>> b40edd4769935e4d3cc900bf8c9d3cd3a0e39365
 
 		.top-nav {
 			margin: 0;
@@ -177,11 +174,13 @@
 			margin: 0px;
 			padding-top: 5px;
 			float: top;
-			border: 0.3px solid;
+			border-style: solid;
+    		border-width: 0px 0px 1px 0px;
 		}
 		h1{
 			margin: 0px;
 			text-align: center;
+			vertical-align: middle;
 			line-height: 70px; 
 			padding:0px;
 		}
