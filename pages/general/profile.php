@@ -3,7 +3,7 @@
 	session_start();
 	$uname = $_SESSION['uname'];
 	$query2 = "SELECT nama FROM anggota WHERE username = '$uname'"
-	
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -207,7 +207,7 @@
 				background-color: grey;
 			}
 
-			img{
+			#pic{
 				display: block;
 				margin-left: auto;
 				margin-right: auto;
@@ -288,13 +288,31 @@
 				position: absolute;
 				font-size: 135%;
 			}
+
+			#text{
+			color: white;
+			position: absolute;
+			font-size: 4vw;
+			margin: 0;
+			margin-top: 2%;
+		}
+			#textarea{
+				width: 20%;
+				height: 20%;
+				margin-right: auto;
+				margin-left: auto;
+			}	
 		</style>
 	</head>
 	<body>
 		<!-- CONTENT -->
 		<div id="image-box">
+			<div id="textarea">
+				<p id="text">e-Library</p>
+			</div>
 			<img src="../../img/banner2.jpg" class="header">
 		</div>
+
 
 		<div id="signup">
 			<?php
@@ -307,10 +325,10 @@
 			<div class="top-nav">
 				<li id="list-header"><a href="logout.php"><i class="fa fa-sign-out"></i></a></li>
 			</div>
-			<div class="top-nav">
+			<div class="top-nav" style="background-color: blue; color: white;">
 				<li id="list-header"><a href="profile.php"><i class="fa fa-user"></i></a></li>
 			</div>
-			<div class="top-nav" style="background-color: blue; color: white;">
+			<div class="top-nav">
 				<li id="list-header"><a href=""><i class="fa fa-envelope"></i></a></li>
 			</div>
 			<div class="top-nav">
@@ -326,10 +344,10 @@
 					<h1>Menu</h1>
 				</div>
 				<div class="nav-content">
-					<a id="temp" href=""><h3>Book List</h3></a>
+					<a id="temp" href="../user/book.php"><h3>Book List</h3></a>
 				</div>
 				<div class="nav-content">
-					<a id="temp" href=""><h3>Borrowing History</h3></a>
+					<a id="temp" href="../user/borrow.php"><h3>Borrowing History</h3></a>
 				</div>
 				<div class="nav-content">
 					<a id="temp" href=""><h3>Download Journals</h3></a>
@@ -389,7 +407,7 @@
 						}						
 					}
 				?>
-					<img src="../../img/profile.jpg" alt="profile picture">
+					<img src="../../img/profile.jpg" alt="profile picture" id="pic">
 					<div class="profile">
 						<button id="SignUp" onclick="blok()">Update User Info</button>
 					</div>

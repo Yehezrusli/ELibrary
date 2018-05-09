@@ -269,10 +269,10 @@
 					<h1>Menu</h1>
 				</div>
 				<div class="nav-content">
-					<a id="temp" href=""><h3>Book List</h3></a>
+					<a id="temp" href="book.php"><h3>Book List</h3></a>
 				</div>
 				<div class="nav-content">
-					<a id="temp" href=""><h3>Borrowing History</h3></a>
+					<a id="temp" href="borrow.php"><h3>Borrowing History</h3></a>
 				</div>
 				<div class="nav-content">
 					<a id="temp" href=""><h3>Download Journals</h3></a>
