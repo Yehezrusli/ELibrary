@@ -63,7 +63,7 @@
 						</td>
                     </tr>
                     <tr>
-						<td id="side-bar-list">
+						<td id="side-bar-list" <?php if(stripos($_SERVER['SCRIPT_NAME'],"journals.php")){echo 'class="active" ';}?>>
 							<li id="li2"><a id="temp" href="../general/journals.php"><h3>Download Jurnal</h3></a></li>
 						</td>
 					</tr>
