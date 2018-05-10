@@ -64,7 +64,7 @@
                     </tr>
                     <tr>
 						<td id="side-bar-list">
-							<li id="li2"><a id="temp" href=""><h3>Download Jurnal</h3></a></li>
+							<li id="li2"><a id="temp" href="../general/journals.php"><h3>Download Jurnal</h3></a></li>
 						</td>
 					</tr>
 				</table>
