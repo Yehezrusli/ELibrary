@@ -1,7 +1,7 @@
 <?php
 	include("../../connection.php");
 	include("header.php");
-	$query2 = "SELECT book.code as code, book.judul as judul, book.pengarang as pengarang, peminjaman.pinjam as pinjam, peminjaman.kembali as kembali, datediff(current_date(), kembali) as dateDue, peminjaman.fine as fine FROM book JOIN peminjaman on book.code = peminjaman.buku";
+	$query2 = "SELECT book.code as code, book.judul as judul, book.pengarang as pengarang, peminjaman.pinjam as pinjam, peminjaman.kembali as kembali, datediff(current_date(), kembali) as dateDue FROM book JOIN peminjaman on book.code = peminjaman.buku";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,8 +34,13 @@
 							echo "<td>".$row['pengarang']."</td>";
 							echo "<td>".$row['pinjam']."</td>";
 							echo "<td>".$row['kembali']."</td>";
-							echo "<td>".$row['dateDue']."</td>";
-							echo "<td>".$row['fine']."</td>";
+							$dateDue = $row['dateDue'];
+							if($dateDue <= 0){
+								$dateDue = 0;
+							}
+							echo "<td>".$dateDue."</td>";
+							$denda = $dateDue*500;
+							echo "<td>".$denda."</td>";
 							echo "</tr>";
 						}
 					}

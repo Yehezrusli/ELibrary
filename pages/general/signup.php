@@ -155,7 +155,7 @@
 				<p id="text">e-Library</p>
 			</div>
 			<img src="../../img/banner2.jpg" class="header">
-		</div>
+			</div>
 
 		<div id="signup">
 			<h1>Create New Account</h1>
