@@ -8,6 +8,11 @@
 		<link rel="stylesheet" href="lib/w3-theme-riverside.css">
 		<link rel="stylesheet" href="style/style.css">
 		<style>
+			html, body{
+				background-color: rgb(53, 50, 50);
+				height: 100%;
+			}
+
 			.w3-theme-l2{
 				color: inherit;
 				background-color: inherit;
@@ -16,10 +21,10 @@
 			.w3-theme-d1{
 				color: #fff !important;
 				background-color: #456185 !important;
-				font-size: 200%;
+				font-size: 2vw;
 			}
 			.temp{
-				width: 16%;
+				width: 17%;
 				margin: auto;
 			}
 		</style>

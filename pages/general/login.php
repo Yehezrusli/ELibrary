@@ -85,9 +85,11 @@
 			}
 			
 			p{
+				display: block;
 				font-size: 20px;
 				color: red;
 				margin: 0;
+				text-align: center;
 			}
 
 			#text{
@@ -102,13 +104,6 @@
 				height: 20%;
 				margin-right: auto;
 				margin-left: auto;
-			}
-
-			.exception{
-				margin-left: auto;
-				margin-right: auto;
-				display: table;
-				
 			}
 
 		</style>
@@ -134,44 +129,40 @@
 			<br>
 			<br>
 			<br>
-			<div class="exception">
-				<?php
-					session_start();
-					if(isset($_POST['cancel'])){
-						header("Location:../../index.php");
+			<?php
+				session_start();
+				if(isset($_POST['cancel'])){
+					header("Location:../../index.php");
+				}
+				
+				if(isset($_POST['login'])){
+					if(isset($_POST['uname'])){
+						$uname = $_POST['uname'];
 					}
-					
-					if(isset($_POST['login'])){
-						if(isset($_POST['uname'])){
-							$uname = $_POST['uname'];
-						}
-						if(isset($_POST['pass'])){
-							$pass = $_POST['pass'];
-						}
-						$query = "SELECT pass FROM anggota WHERE username = '$uname'";
-						$result = $con->query($query);
+					if(isset($_POST['pass'])){
+						$pass = $_POST['pass'];
+					}
+					$query = "SELECT pass FROM anggota WHERE username = '$uname'";
+					$result = $con->query($query);
 
-						if(!isset($uname) || empty($uname)){
-							echo '<p>Please enter your username and password</p>';
-						} else if(!isset($pass) || empty($pass)){
-							echo '<p>Please enter your username and password</p>';
-						} else if($result->num_rows == 0){
-							echo '<p>WRONG USERNAME</p>';
-						} else{
-							while($row = $result->fetch_array()){
-								if($row['pass'] == md5("$pass")){
-									$_SESSION['uname'] = $uname;
-									header("Location:../user/usr.php");
-								}else{
-									echo "<p>Wrong Password</p>";
-								}
+					if(!isset($uname) || empty($uname)){
+						echo '<p>Please enter your username and password</p>';
+					} else if(!isset($pass) || empty($pass)){
+						echo '<p>Please enter your username and password</p>';
+					} else if($result->num_rows == 0){
+						echo '<p>WRONG USERNAME</p>';
+					} else{
+						while($row = $result->fetch_array()){
+							if($row['pass'] == md5("$pass")){
+								$_SESSION['uname'] = $uname;
+								header("Location:../user/usr.php");
+							}else{
+								echo "<p>Wrong Password</p>";
 							}
 						}
 					}
-				?>
-			</div>
+				}
+			?>
 		</div>
-
-		
 	</body>
 </html>

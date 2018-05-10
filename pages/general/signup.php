@@ -90,6 +90,14 @@
 				margin-left: 10px;
 			}
 
+			.exception{
+				display: block;
+				font-size: 20px;
+				color: red;
+				margin: 0;
+				text-align: center;
+			}
+
 			.modal {
             position: fixed;
             z-index: 1;
@@ -185,14 +193,23 @@
 					if($pass != $cpass){
 						echo "<p>Password does not match</p>";
 					}else{
-						$query = "INSERT INTO anggota(username, pass, nama, telepon, alamat) VALUES ('$uname', '$hidepass', '$nama', '$phone', '$alamat')";
-						if($con->query($query)){
-							$should_show_modal='1';
-						}
-						else{
-							$should_show_modal='0';
-						}
 						
+							$queryCheck="SELECT username FROM anggota WHERE username = '$uname'";
+							$res = $con->query($queryCheck);
+							if($res->num_rows != 0){
+								echo '<br>';
+								echo '<br>';
+								echo '<p class="exception">Username has already exist</p>';
+								echo '<p class="exception">Please use other username</p>';
+							}else{
+							$query = "INSERT INTO anggota(username, pass, nama, telepon, alamat, stat) VALUES ('$uname', '$hidepass', '$nama', '$phone', '$alamat', 'usr')";
+							if($con->query($query)){
+								$should_show_modal='1';
+							}
+							else{
+								$should_show_modal='0';
+							}
+						}
 					}
 				}
 			}
@@ -225,5 +242,4 @@
 			}
 		?>
 	</body>
-	
 </html>
