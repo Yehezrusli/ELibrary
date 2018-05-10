@@ -76,7 +76,7 @@
 					<input type="text" name="pengarang" placeHolder="Author"><br>
 					<input type="text" name="tahun" placeHolder="Publication Year"><br>
 					<input type="text" name="penerbit" placeHolder="Publisher"><br>
-					<select name="kateory" style="width: 97%; margin: 10px; height: 40px;">
+					<select name="kategory" style="width: 97%; margin: 10px; height: 40px;">
 						<?php
 							$queryKategory = "SELECT id, nama FROM kategory";
 							if($res=$con->query($queryKategory)){
@@ -88,11 +88,19 @@
 					<!-- value nnti disamain sama yg di tabel biar gampang -->
 				</select><br>
 					<input type="submit" name="add" id="button" value="ADD">
-
-				</form>
+				</form>	
 			</div>
 	</div>
-	
+	<?php
+		if(isset($_POST['add'])){
+			$judul = $_POST['judul'];
+			$pengarang = $_POST['pengarang'];
+			$tahun = $_POST['tahun'];
+			$penerbit = $_POST['penerbit'];
+			$kateory = $_POST['kategory'];
+			echo $kateory;
+		}
+	?>
 	<script>
         var modal = document.getElementById('myModal');
         var btn = document.getElementById("myBtn");

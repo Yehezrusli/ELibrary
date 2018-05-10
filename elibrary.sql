@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2018 at 03:31 PM
+-- Generation Time: May 10, 2018 at 06:08 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -40,9 +40,9 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`username`, `pass`, `nama`, `telepon`, `alamat`, `stat`) VALUES
-('JL', '81dc9bdb52d04dc20036dbd8313ed055', 'Joshua Laurich', '08999999999', 'Jl ajah', 'usr'),
-('jy', '827ccb0eea8a706c4c34a16891f84e7b', 'Jason Yehezkiel', '081111111111', 'Jl Pasadena', 'usr'),
-('kikil', '41d96a32a1ba29a6b996e0ae515c4c60', 'Yehezkiel Rusli', '0813944667204', 'Jl Kopo no 341', 'usr'),
+('JL', '81dc9bdb52d04dc20036dbd8313ed055', 'Joshua Laurich', '08999999999', 'Jl ajah', 'adm'),
+('jy', '827ccb0eea8a706c4c34a16891f84e7b', 'Jason Yehezkiel', '081111111111', 'Jl Pasadena', 'adm'),
+('kikil', '41d96a32a1ba29a6b996e0ae515c4c60', 'Yehezkiel Rusli', '0813944667204', 'Jl Kopo no 341', 'adm'),
 ('uname1', 'a722c63db8ec8625af6cf71cb8c2d939', 'nama1', 'phone1', 'alamat1', 'usr'),
 ('uname10', 'a3224611fd03510682690769d0195d66', 'nama10', 'phone10', 'alamat10', 'usr'),
 ('uname11', '0102812fbd5f73aa18aa0bae2cd8f79f', 'nama11', 'phone11', 'alamat11', 'usr'),
@@ -101,55 +101,55 @@ INSERT INTO `anggota` (`username`, `pass`, `nama`, `telepon`, `alamat`, `stat`) 
 --
 
 CREATE TABLE `book` (
-  `code` varchar(5) NOT NULL,
   `judul` varchar(20) NOT NULL,
   `pengarang` varchar(30) NOT NULL,
   `tahun` int(4) NOT NULL,
-  `penerbit` varchar(20) NOT NULL
+  `penerbit` varchar(20) NOT NULL,
+  `code` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `book`
 --
 
-INSERT INTO `book` (`code`, `judul`, `pengarang`, `tahun`, `penerbit`) VALUES
-('B574', 'Pelangi-Pelangi', 'Adam', 2012, 'Gramedia'),
-('W215', 'Topi Saya Bundar', 'Kak Sur', 1997, 'Gramedia'),
-('A123', 'PBW', 'Ci Joane', 2018, 'UNPAR'),
-('C234', 'aku bahagia', 'ccc', 1000, 'rumah'),
-('C1', 'buku1', 'pengarang1', 2011, 'penerbit1'),
-('C1', 'buku1', 'pengarang1', 2011, 'penerbit1'),
-('C1', 'buku1', 'pengarang1', 2011, 'penerbit1'),
-('C1', 'buku1', 'pengarang1', 2011, 'penerbit1'),
-('C2', 'buku2', 'pengarang2', 2011, 'penerbit2'),
-('C3', 'buku3', 'pengarang3', 2011, 'penerbit3'),
-('C4', 'buku4', 'pengarang4', 2011, 'penerbit4'),
-('C5', 'buku5', 'pengarang5', 2011, 'penerbit5'),
-('C6', 'buku6', 'pengarang6', 2011, 'penerbit6'),
-('C7', 'buku7', 'pengarang7', 2011, 'penerbit7'),
-('C8', 'buku8', 'pengarang8', 2011, 'penerbit8'),
-('C9', 'buku9', 'pengarang9', 2011, 'penerbit9'),
-('C10', 'buku10', 'pengarang10', 2011, 'penerbit10'),
-('C11', 'buku11', 'pengarang11', 2011, 'penerbit11'),
-('C12', 'buku12', 'pengarang12', 2011, 'penerbit12'),
-('C13', 'buku13', 'pengarang13', 2011, 'penerbit13'),
-('C14', 'buku14', 'pengarang14', 2011, 'penerbit14'),
-('C15', 'buku15', 'pengarang15', 2011, 'penerbit15'),
-('C21', 'buku21', 'pengarang21', 2517, 'penerbit21'),
-('C22', 'buku22', 'pengarang22', 2517, 'penerbit22'),
-('C23', 'buku23', 'pengarang23', 2517, 'penerbit23'),
-('C24', 'buku24', 'pengarang24', 2517, 'penerbit24'),
-('C25', 'buku25', 'pengarang25', 2517, 'penerbit25'),
-('C21', 'buku21', 'pengarang21', 2517, 'penerbit21'),
-('C22', 'buku22', 'pengarang22', 2517, 'penerbit22'),
-('C23', 'buku23', 'pengarang23', 2517, 'penerbit23'),
-('C24', 'buku24', 'pengarang24', 2517, 'penerbit24'),
-('C25', 'buku25', 'pengarang25', 2517, 'penerbit25'),
-('C26', 'buku26', 'pengarang26', 2517, 'penerbit26'),
-('C27', 'buku27', 'pengarang27', 2517, 'penerbit27'),
-('C28', 'buku28', 'pengarang28', 2517, 'penerbit28'),
-('C29', 'buku29', 'pengarang29', 2517, 'penerbit29'),
-('C30', 'buku30', 'pengarang30', 2517, 'penerbit30');
+INSERT INTO `book` (`judul`, `pengarang`, `tahun`, `penerbit`, `code`) VALUES
+('Pelangi-Pelangi', 'Adam', 2012, 'Gramedia', 1),
+('Topi Saya Bundar', 'Kak Sur', 1997, 'Gramedia', 2),
+('PBW', 'Ci Joane', 2018, 'UNPAR', 3),
+('aku bahagia', 'ccc', 1000, 'rumah', 4),
+('buku1', 'pengarang1', 2011, 'penerbit1', 5),
+('buku1', 'pengarang1', 2011, 'penerbit1', 6),
+('buku1', 'pengarang1', 2011, 'penerbit1', 7),
+('buku1', 'pengarang1', 2011, 'penerbit1', 8),
+('buku2', 'pengarang2', 2011, 'penerbit2', 9),
+('buku3', 'pengarang3', 2011, 'penerbit3', 10),
+('buku4', 'pengarang4', 2011, 'penerbit4', 11),
+('buku5', 'pengarang5', 2011, 'penerbit5', 12),
+('buku6', 'pengarang6', 2011, 'penerbit6', 13),
+('buku7', 'pengarang7', 2011, 'penerbit7', 14),
+('buku8', 'pengarang8', 2011, 'penerbit8', 15),
+('buku9', 'pengarang9', 2011, 'penerbit9', 16),
+('buku10', 'pengarang10', 2011, 'penerbit10', 17),
+('buku11', 'pengarang11', 2011, 'penerbit11', 18),
+('buku12', 'pengarang12', 2011, 'penerbit12', 19),
+('buku13', 'pengarang13', 2011, 'penerbit13', 20),
+('buku14', 'pengarang14', 2011, 'penerbit14', 21),
+('buku15', 'pengarang15', 2011, 'penerbit15', 22),
+('buku21', 'pengarang21', 2517, 'penerbit21', 23),
+('buku22', 'pengarang22', 2517, 'penerbit22', 24),
+('buku23', 'pengarang23', 2517, 'penerbit23', 25),
+('buku24', 'pengarang24', 2517, 'penerbit24', 26),
+('buku25', 'pengarang25', 2517, 'penerbit25', 27),
+('buku21', 'pengarang21', 2517, 'penerbit21', 28),
+('buku22', 'pengarang22', 2517, 'penerbit22', 29),
+('buku23', 'pengarang23', 2517, 'penerbit23', 30),
+('buku24', 'pengarang24', 2517, 'penerbit24', 31),
+('buku25', 'pengarang25', 2517, 'penerbit25', 32),
+('buku26', 'pengarang26', 2517, 'penerbit26', 33),
+('buku27', 'pengarang27', 2517, 'penerbit27', 34),
+('buku28', 'pengarang28', 2517, 'penerbit28', 35),
+('buku29', 'pengarang29', 2517, 'penerbit29', 36),
+('buku30', 'pengarang30', 2517, 'penerbit30', 37);
 
 -- --------------------------------------------------------
 
@@ -157,7 +157,7 @@ INSERT INTO `book` (`code`, `judul`, `pengarang`, `tahun`, `penerbit`) VALUES
 -- Stand-in structure for view `cek due`
 --
 CREATE TABLE `cek due` (
-`code` varchar(5)
+`code` int(11)
 ,`judul` varchar(20)
 ,`pengarang` varchar(30)
 ,`pinjam` date
@@ -198,53 +198,53 @@ INSERT INTO `kategory` (`id`, `nama`) VALUES
 --
 
 CREATE TABLE `kategorybuku` (
-  `buku` varchar(5) NOT NULL,
-  `kategory` int(11) NOT NULL
+  `kategory` int(11) NOT NULL,
+  `buku` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kategorybuku`
 --
 
-INSERT INTO `kategorybuku` (`buku`, `kategory`) VALUES
-('B574', 2),
-('B574', 5),
-('W215', 2),
-('W215', 3),
-('A123', 7),
-('A123', 8),
-('c234', 3),
-('c234', 4),
-('c1', 1),
-('c2', 3),
-('c3', 4),
-('c4', 6),
-('c5', 5),
-('c6', 2),
-('c7', 5),
-('c8', 6),
-('c9', 2),
-('c10', 4),
-('c11', 3),
-('c12', 6),
-('c13', 4),
-('c14', 1),
-('c15', 1),
-('c16', 3),
-('c17', 5),
-('c18', 4),
-('c19', 6),
-('c20', 7),
-('c21', 3),
-('c22', 2),
-('c23', 1),
-('c24', 2),
-('c25', 3),
-('c26', 6),
-('c27', 7),
-('c28', 6),
-('c29', 5),
-('c30', 1);
+INSERT INTO `kategorybuku` (`kategory`, `buku`) VALUES
+(1, 9),
+(1, 22),
+(1, 23),
+(1, 31),
+(1, 38),
+(2, 1),
+(2, 3),
+(2, 14),
+(2, 17),
+(2, 30),
+(2, 32),
+(3, 4),
+(3, 7),
+(3, 10),
+(3, 19),
+(3, 24),
+(3, 29),
+(3, 33),
+(4, 8),
+(4, 11),
+(4, 18),
+(4, 21),
+(4, 26),
+(5, 2),
+(5, 13),
+(5, 15),
+(5, 25),
+(5, 37),
+(6, 12),
+(6, 16),
+(6, 20),
+(6, 27),
+(6, 34),
+(6, 36),
+(7, 5),
+(7, 28),
+(7, 35),
+(8, 6);
 
 -- --------------------------------------------------------
 
@@ -253,38 +253,38 @@ INSERT INTO `kategorybuku` (`buku`, `kategory`) VALUES
 --
 
 CREATE TABLE `peminjaman` (
-  `buku` varchar(5) NOT NULL,
   `pinjam` date NOT NULL,
-  `kembali` date NOT NULL
+  `kembali` date NOT NULL,
+  `buku` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `peminjaman`
 --
 
-INSERT INTO `peminjaman` (`buku`, `pinjam`, `kembali`) VALUES
-('B574', '2018-05-03', '2018-05-08'),
-('A123', '2018-05-03', '2018-05-06'),
-('B574', '2018-05-03', '2018-05-10'),
-('A123', '2018-05-03', '2018-05-10'),
-('c1', '2018-05-09', '2018-05-15'),
-('c2', '2018-05-03', '2018-05-12'),
-('c4', '2018-05-04', '2018-05-12'),
-('c5', '2018-05-05', '2018-05-11'),
-('c7', '2018-05-02', '2018-05-10'),
-('c3', '2018-05-06', '2018-05-12'),
-('c8', '2018-05-08', '2018-05-14'),
-('c30', '2018-05-07', '2018-05-13'),
-('c17', '2018-05-01', '2018-05-08'),
-('c10', '2018-05-03', '2018-05-10'),
-('c21', '2018-05-04', '2018-05-08'),
-('c22', '2018-05-05', '2018-05-23'),
-('c55', '2018-05-09', '2018-05-15'),
-('c21', '2018-05-10', '2018-05-15'),
-('c45', '2018-05-05', '2018-05-09'),
-('c22', '2018-05-06', '2018-05-10'),
-('c19', '2018-05-07', '2018-05-12'),
-('c29', '2018-05-04', '2018-05-09');
+INSERT INTO `peminjaman` (`pinjam`, `kembali`, `buku`) VALUES
+('2018-05-03', '2018-05-08', 4),
+('2018-05-03', '2018-05-06', 5),
+('2018-05-03', '2018-05-10', 2),
+('2018-05-03', '2018-05-10', 6),
+('2018-05-09', '2018-05-15', 12),
+('2018-05-03', '2018-05-12', 15),
+('2018-05-04', '2018-05-12', 13),
+('2018-05-05', '2018-05-11', 24),
+('2018-05-02', '2018-05-10', 26),
+('2018-05-06', '2018-05-12', 12),
+('2018-05-08', '2018-05-14', 11),
+('2018-05-07', '2018-05-13', 10),
+('2018-05-01', '2018-05-08', 1),
+('2018-05-03', '2018-05-10', 14),
+('2018-05-04', '2018-05-08', 16),
+('2018-05-05', '2018-05-23', 21),
+('2018-05-09', '2018-05-15', 20),
+('2018-05-10', '2018-05-15', 28),
+('2018-05-05', '2018-05-09', 13),
+('2018-05-06', '2018-05-10', 30),
+('2018-05-07', '2018-05-12', 29),
+('2018-05-04', '2018-05-09', 22);
 
 -- --------------------------------------------------------
 
@@ -292,7 +292,7 @@ INSERT INTO `peminjaman` (`buku`, `pinjam`, `kembali`) VALUES
 -- Stand-in structure for view `tes`
 --
 CREATE TABLE `tes` (
-`code` varchar(5)
+`code` int(11)
 ,`judul` varchar(20)
 ,`pengarang` varchar(30)
 ,`tahun` int(4)
@@ -306,7 +306,7 @@ CREATE TABLE `tes` (
 -- Stand-in structure for view `tes2`
 --
 CREATE TABLE `tes2` (
-`code` varchar(5)
+`code` int(11)
 ,`judul` varchar(20)
 ,`pengarang` varchar(30)
 ,`tahun` int(4)
@@ -320,7 +320,7 @@ CREATE TABLE `tes2` (
 -- Stand-in structure for view `tes3`
 --
 CREATE TABLE `tes3` (
-`code` varchar(5)
+`code` int(11)
 ,`judul` varchar(20)
 ,`pengarang` varchar(30)
 ,`tahun` int(4)
@@ -392,20 +392,61 @@ ALTER TABLE `anggota`
   ADD PRIMARY KEY (`username`);
 
 --
+-- Indexes for table `book`
+--
+ALTER TABLE `book`
+  ADD PRIMARY KEY (`code`);
+
+--
 -- Indexes for table `kategory`
 --
 ALTER TABLE `kategory`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `kategorybuku`
+--
+ALTER TABLE `kategorybuku`
+  ADD PRIMARY KEY (`buku`),
+  ADD KEY `buku` (`buku`),
+  ADD KEY `kategory` (`kategory`);
+
+--
+-- Indexes for table `peminjaman`
+--
+ALTER TABLE `peminjaman`
+  ADD KEY `pinjam` (`pinjam`),
+  ADD KEY `buku` (`buku`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `book`
+--
+ALTER TABLE `book`
+  MODIFY `code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `kategory`
 --
 ALTER TABLE `kategory`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `kategorybuku`
+--
+ALTER TABLE `kategorybuku`
+  MODIFY `buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `kategorybuku`
+--
+ALTER TABLE `kategorybuku`
+  ADD CONSTRAINT `kategory` FOREIGN KEY (`kategory`) REFERENCES `kategory` (`id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
