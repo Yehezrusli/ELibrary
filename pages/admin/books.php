@@ -97,8 +97,18 @@
 			$pengarang = $_POST['pengarang'];
 			$tahun = $_POST['tahun'];
 			$penerbit = $_POST['penerbit'];
-			$kateory = $_POST['kategory'];
-			echo $kateory;
+			$kategory = $_POST['kategory'];
+			$insert = "INSERT INTO book(judul, pengarang, tahun, penerbit) VALUES('$judul', '$pengarang', $tahun, '$penerbit')";
+			$con->query($insert);
+			$code = "SELECT code FROM book WHERE judul = '$judul'";
+			if($res = $con->query($code)){
+				while($row = $res->fetch_array()){
+					$id = $row['code'];
+				}
+			}
+			$insert = "INSERT INTO kategorybuku(kategory, buku) VALUES ($kategory, $id)";
+			if($con->query($insert)){
+			}
 		}
 	?>
 	<script>
