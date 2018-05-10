@@ -38,7 +38,7 @@
 			?>
 			<li id="li" ><a href="../general/logout.php"><i class="fa fa-sign-out"></i></a></li>
 			<li id="li" <?php if(stripos($_SERVER['SCRIPT_NAME'],"profile.php")){echo 'class="active" ';}?>><a href="../general/profile.php"><i class="fa fa-user"></i></a></li>
-			<li id="li" ><a href="mailto:ruslikikil@gmail.com? Subject=Advice" target="_top"><i class="fa fa-envelope"></i></a></li>
+			<li id="li" ><a href="#"><i class="fa fa-bell"></i></a></li>
 			<li id="li" <?php if(stripos($_SERVER['SCRIPT_NAME'],"news.php")){echo 'class="active" ';}?>><a href="../general/news.php"><i class="fa fa-newspaper-o"></i></a></li>
 			<li id="li" <?php if(stripos($_SERVER['SCRIPT_NAME'],"usr.php")){echo 'class="active" ';}?>><a href="../user/usr.php"><i class="fa fa-home"></i></a></li>
 		</div>
@@ -48,18 +48,23 @@
 				</div>
 				<table id="side-bar">
 					<tr>
-						<td id="side-bar-list" <?php if(stripos($_SERVER['SCRIPT_NAME'],"book.php")){echo 'class="active" ';}?>>
-							<li id="li2"><a id="temp" href="../user/book.php"><h3>Book List</h3></a></li>
+						<td id="side-bar-list" <?php if(stripos($_SERVER['SCRIPT_NAME'],"books.php")){echo 'class="active" ';}?>>
+							<li id="li2"><a id="temp" href="../admin/books.php"><h3>Book List</h3></a></li>
 						</td>
 					</tr>
 					<tr>
 						<td id="side-bar-list" <?php if(stripos($_SERVER['SCRIPT_NAME'],"borrow.php")){echo 'class="active" ';}?>>
-							<li id="li2"><a id="temp" href="../user/borrow.php"><h3>Borrowing History</h3></a></li>
+							<li id="li2"><a id="temp" href="../user/borrow.php"><h3>Member List</h3></a></li>
 						</td>
 					</tr>
 					<tr>
 						<td id="side-bar-list">
-							<li id="li2"><a id="temp" href=""><h3>Download Journals</h3></a></li>
+							<li id="li2"><a id="temp" href=""><h3>Administrator List</h3></a></li>
+						</td>
+                    </tr>
+                    <tr>
+						<td id="side-bar-list">
+							<li id="li2"><a id="temp" href=""><h3>Download Jurnal</h3></a></li>
 						</td>
 					</tr>
 				</table>

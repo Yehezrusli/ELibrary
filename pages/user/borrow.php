@@ -1,7 +1,8 @@
 <?php
+	session_start();
 	include("../../connection.php");
 	include("header.php");
-	$query2 = "SELECT book.code as code, book.judul as judul, book.pengarang as pengarang, peminjaman.pinjam as pinjam, peminjaman.kembali as kembali, datediff(current_date(), kembali) as dateDue FROM book JOIN peminjaman on book.code = peminjaman.buku";
+	$query2 = "SELECT book.code as code, book.judul as judul, book.pengarang as pengarang, peminjaman.pinjam as pinjam, peminjaman.kembali as kembali, datediff(current_date(), kembali) as dateDue FROM book JOIN peminjaman on book.code = peminjaman.buku ORDER BY peminjaman.pinjam";
 ?>
 <!DOCTYPE html>
 <html lang="en">

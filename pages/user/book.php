@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include("../../connection.php");
 	include("../user/header.php");
 	$query2 = "SELECT book.code as code, book.judul as judul, book.pengarang as pengarang, book.tahun as tahun, book.penerbit as penerbit, kategory.nama as kategory FROM book JOIN kategorybuku on book.code = kategorybuku.buku JOIN kategory ON kategory.id = kategorybuku.kategory";

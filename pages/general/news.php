@@ -1,8 +1,18 @@
 <?php
 	include("../../connection.php");
-	include("../user/header.php");
-	$query2 = "SELECT book.code as code, book.judul as judul, book.pengarang as pengarang, book.tahun as tahun, book.penerbit as penerbit, kategory.nama as kategory FROM book JOIN kategorybuku on book.code = kategorybuku.buku JOIN kategory ON kategory.id = kategorybuku.kategory";
-?>
+	session_start();
+	$uname = $_SESSION['uname'];
+	$query = "SELECT nama, stat FROM anggota WHERE username = '$uname'";	
+	if($res = $con->query($query)){
+		while($row = $res->fetch_array()){ 
+			if($row['stat']=='usr'){
+				include("../user/header.php");
+			}else{
+				include("../admin/headerAdmin.php");
+			}
+		}
+	}
+?>	
 <!DOCTYPE html>
 <html lang="en">
 <head>

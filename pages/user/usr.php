@@ -1,6 +1,17 @@
 <?php
 	include("../../connection.php");
-	include("../user/header.php");
+	session_start();
+	$uname = $_SESSION['uname'];
+	$query = "SELECT nama, stat FROM anggota WHERE username = '$uname'";	
+	if($res = $con->query($query)){
+		while($row = $res->fetch_array()){ 
+			if($row['stat']=='usr'){
+				include("../user/header.php");
+			}else{
+				include("../admin/headerAdmin.php");
+			}
+		}
+	}
 ?>	
 <!DOCTYPE html>
 <html lang="en">
