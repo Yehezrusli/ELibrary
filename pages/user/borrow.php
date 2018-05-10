@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="content">
-		<h1 style="display:inline">Borrowing History</h1>
+		<h1 style="display:inline; margin-left:2%">Borrowing History</h1>
 		<div class="scrollable">
 			<table class="data">
 				<tr>

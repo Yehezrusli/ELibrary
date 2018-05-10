@@ -53,8 +53,8 @@
 						</td>
 					</tr>
 					<tr>
-						<td id="side-bar-list" <?php if(stripos($_SERVER['SCRIPT_NAME'],"borrow.php")){echo 'class="active" ';}?>>
-							<li id="li2"><a id="temp" href="../user/borrow.php"><h3>Member List</h3></a></li>
+						<td id="side-bar-list" <?php if(stripos($_SERVER['SCRIPT_NAME'],"member.php")){echo 'class="active" ';}?>>
+							<li id="li2"><a id="temp" href="../admin/member.php"><h3>Member List</h3></a></li>
 						</td>
 					</tr>
 					<tr>

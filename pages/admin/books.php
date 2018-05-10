@@ -23,7 +23,7 @@
 	?>
 			<input id="button" onclick="blok()" style="font-size: 2vw;margin-left:0px ;padding: 1px;font-size: 1vw; float: right; margin-right: 3%; ; margin-top: 1.5%; margin-bottom: 10px;" type="submit" name="add" value="ADD BOOK">
 			<form action="" method="get" id="search">
-				<h1 style="display:inline">Book List</h1>
+				<h1 style="display:inline; margin-left:2%">Book List</h1>
 				<input id="button" style="font-size: 2vw;margin-left:0px ;padding: 1px;font-size: 1vw; float: right; margin-right: 1%; ; margin-top: 1.5%; margin-bottom: 10px;" type="submit" name="cari" value="Search">
 				<select name="filterBy" style="width:15%; margin-right: 1%; height: 2vw;float:right; margin-top: 1.5%; font-size: 1vw;">
 					<option value="book.code">Code</option>
