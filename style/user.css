@@ -125,6 +125,14 @@ li{
     display: inline-block;
 }
 
+.journal-wrapper{
+    width: 97%;
+    margin: 10px auto 0px auto;
+    border: 1px black solid;
+    padding: 2px;
+    background-color: rgb(124, 120, 170);
+}
+
 #li2{
     float: left;
     display: inline-block;
