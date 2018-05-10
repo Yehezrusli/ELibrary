@@ -116,8 +116,6 @@
 		
 		function blok() {
             modal.style.display = "block";
-            var text = "You have login as yehez";
-            document.getElementById("test").innerHTML = text;
         }
 		
         function none() {
