@@ -199,6 +199,7 @@
 							if($res->num_rows != 0){
 								echo '<br>';
 								echo '<br>';
+								echo '<br>';
 								echo '<p class="exception">Username has already exist</p>';
 								echo '<p class="exception">Please use other username</p>';
 							}else{

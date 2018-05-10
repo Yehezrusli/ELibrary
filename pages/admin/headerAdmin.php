@@ -58,8 +58,8 @@
 						</td>
 					</tr>
 					<tr>
-						<td id="side-bar-list">
-							<li id="li2"><a id="temp" href=""><h3>Administrator List</h3></a></li>
+						<td id="side-bar-list" <?php if(stripos($_SERVER['SCRIPT_NAME'],"admList.php")){echo 'class="active" ';}?>>
+							<li id="li2"><a id="temp" href="../admin/admList.php"><h3>Administrator List</h3></a></li>
 						</td>
                     </tr>
                     <tr>

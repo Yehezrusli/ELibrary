@@ -12,9 +12,8 @@
 			}
 		}
 	}
-	$query2= "SELECT username, nama, telepon, alamat FROM anggota WHERE stat = 'adm'";
-	$query3= "INSERT INTO anggota(username, pass, nama, telepon, alamat, stat) VALUES";
-	$password = '';
+	$query2= "SELECT nama, telepon, alamat FROM anggota WHERE stat='adm'";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,29 +42,42 @@
 		<input id="button" type="button" name="tambah" onclick="blok()" value="Add Admin">
 		<div class="scrollable">
 			<?php
-				if(isset($GLOBALS['showpass']))echo"aaaa";
-				if($GLOBALS['showpass']){
-					echo "<p>Administrator added, temporary password: $password. Please do change it immediately!</p>";
-					$GLOBALS['showpass'] = 0;
+				if(isset($_POST['register'])){
+					$username = $_POST['username'];
+					$name = $_POST['name'];
+					$phone = $_POST['phone'];
+					$address = $_POST['adress'];
+					$password = generatePass();
+					$query4= "SELECT username FROM anggota WHERE username = '$username'";
+					$query3= "INSERT INTO anggota(username, pass, nama, telepon, alamat, stat) VALUES('$username', md5('$password'), '$name', '$phone', '$address', 'adm')";
+					$res = $con->query($query4);
+					if($res->num_rows > 0){
+						echo '<p id="added">Username not available. Please try again</p>';
+					}else{
+						if($con->query($query3)){
+							echo '<p id="added">Administrator added, temporary password: '.$password.'. Please change it immediately</p>';
+						}
+					}
 				}
 			?>
-			<p></p>
 			<table class="data">
 				<tr>
-					<th>ID</th>
-					<th>Phone</th>
+					<th>No</th>
 					<th>Name</th>
+					<th>Phone</th>
 					<th>Address</th>
 				</tr>
 				<?php
+					$i = 1;
 					if($res = $con->query($query2)){
 						while($row = $res->fetch_array()){
 							echo "<tr>";
-							echo "<td>".$row['username']."</td>";
+							echo "<td>".$i."</td>";
 							echo "<td>".$row['nama']."</td>";
 							echo "<td>".$row['telepon']."</td>";
 							echo "<td>".$row['alamat']."</td>";
 							echo "</tr>";
+							$i++;
 						}
 					}
 				?>
@@ -75,7 +87,6 @@
 			<p>2018 kikil-jeye</p>
 		</div>
 	</div>
-
 	<div id="myModal" class="modal">
 		<div class="modal-content">
 			<span class="close" onclick="none()">&times;</span>
@@ -98,20 +109,6 @@
 				$randomString .= $characters[rand(0, $charlength-1)];
 			}
 			return $randomString;
-		}
-
-		if(isset($_POST['register'])){
-			$username = $_POST['username'];
-			$name = $_POST['name'];
-			$phone = $_POST['phone'];
-			$address = $_POST['adress'];
-			$password = generatePass();
-			$query3 .= "('$username', md5('$password'), '$name', '$phone', '$address', 'adm')";
-			if($con->query($query3)){
-				$GLOBALS['showpass'] = '1';
-				echo "bbbb";
-				echo $GLOBALS['showpass'];
-			}
 		}
 	?>
 	<script>
