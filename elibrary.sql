@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2018 at 06:08 PM
+-- Generation Time: May 11, 2018 at 05:53 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -40,8 +40,11 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`username`, `pass`, `nama`, `telepon`, `alamat`, `stat`) VALUES
+('fer', '202cb962ac59075b964b07152d234b70', 'Ferdian', '0822222', 'pelosok', 'usr'),
+('gopal', 'e10adc3949ba59abbe56e057f20f883e', 'Naofal Leo', '08112222', 'pelosok', 'usr'),
 ('JL', '81dc9bdb52d04dc20036dbd8313ed055', 'Joshua Laurich', '08999999999', 'Jl ajah', 'adm'),
 ('jy', '827ccb0eea8a706c4c34a16891f84e7b', 'Jason Yehezkiel', '081111111111', 'Jl Pasadena', 'adm'),
+('Kebin', '501c2037022ef6b5d9ef2f1c1ea329ce', 'Kevin', '1234', 'Jl pasirkoja', 'adm'),
 ('kikil', '41d96a32a1ba29a6b996e0ae515c4c60', 'Yehezkiel Rusli', '0813944667204', 'Jl Kopo no 341', 'adm'),
 ('uname1', 'a722c63db8ec8625af6cf71cb8c2d939', 'nama1', 'phone1', 'alamat1', 'usr'),
 ('uname10', 'a3224611fd03510682690769d0195d66', 'nama10', 'phone10', 'alamat10', 'usr'),
@@ -149,7 +152,11 @@ INSERT INTO `book` (`judul`, `pengarang`, `tahun`, `penerbit`, `code`) VALUES
 ('buku27', 'pengarang27', 2517, 'penerbit27', 34),
 ('buku28', 'pengarang28', 2517, 'penerbit28', 35),
 ('buku29', 'pengarang29', 2517, 'penerbit29', 36),
-('buku30', 'pengarang30', 2517, 'penerbit30', 37);
+('buku30', 'pengarang30', 2517, 'penerbit30', 37),
+('Jacky', 'Chan', 2017, 'China', 44),
+('Kura-Kura Ninja', 'Hashrul', 1998, 'Gunung Angung', 45),
+('Naruto', 'ajinomoti', 1997, 'Hiroshima Nagasaki', 46),
+('Conan', 'aoyama gosho', 1991, 'PT Elecmedia compute', 47);
 
 -- --------------------------------------------------------
 
@@ -229,7 +236,14 @@ INSERT INTO `kategorybuku` (`kategory`, `buku`) VALUES
 (7, 5),
 (7, 28),
 (7, 35),
-(8, 6);
+(8, 6),
+(3, 41),
+(5, 23),
+(1, 43),
+(6, 44),
+(8, 45),
+(6, 46),
+(1, 47);
 
 -- --------------------------------------------------------
 
@@ -271,7 +285,6 @@ INSERT INTO `peminjaman` (`pinjam`, `kembali`, `buku`) VALUES
 ('2018-05-07', '2018-05-12', 29),
 ('2018-05-04', '2018-05-09', 22);
 
-
 --
 -- Indexes for dumped tables
 --
@@ -298,8 +311,6 @@ ALTER TABLE `kategory`
 -- Indexes for table `kategorybuku`
 --
 ALTER TABLE `kategorybuku`
-  ADD PRIMARY KEY (`buku`),
-  ADD KEY `buku` (`buku`),
   ADD KEY `kategory` (`kategory`);
 
 --
@@ -317,17 +328,12 @@ ALTER TABLE `peminjaman`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `kategory`
 --
 ALTER TABLE `kategory`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `kategorybuku`
---
-ALTER TABLE `kategorybuku`
-  MODIFY `buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- Constraints for dumped tables
 --
