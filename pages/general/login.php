@@ -49,7 +49,7 @@
 				margin-top: 10px;
 				margin-bottom: 10px;
 				width: 100%;
-				height: 20%;
+				height: 2vw;
 				padding-left: 10px;
 				font-size: 20px;
 			}
@@ -59,7 +59,7 @@
 				margin-top: 10px;
 				margin-bottom: 10px;
 				width: 100%;
-				height: 20%;
+				height: 2vw;
 				padding-left: 10px;
 				font-size: 20px;
 			}
@@ -79,9 +79,9 @@
 			}
 
 			input[type=submit] {
-            width: 20%;
-			height: 20%;
-			margin: 0;
+				width: 20%;
+				height: 2vw;
+				margin: 0;
 			}
 			
 			p{
@@ -118,17 +118,13 @@
 		</div>
 		<div id="login">
 			<h1>Login</h1>
-			<form action="" method="post">
+			<form action="" method="post" style="height: 25%;">
 				<input type="text" name="uname" placeHolder="Username"><br>
 				<input type="password" name="pass" placeHolder="Password"><br>
 				<input type="submit" name="login" id="button" onsubmit="blok()" value="LOGIN">
 				<input type="submit" name="cancel" id="button" value="CANCEL">
 			</form>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+
 			<?php
 				session_start();
 				if(isset($_POST['cancel'])){

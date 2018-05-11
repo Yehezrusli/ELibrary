@@ -145,6 +145,11 @@ li a:hover{
     background-color: #5555ff;
 }
 
+#side-bar tr:hover{
+    /* padding: 20px; */
+    background-color: #5555ff;
+}
+
 .nav-bar{
     width: 18%;
     height: 70%;
@@ -376,6 +381,7 @@ button{
 .active{
     background-color: blue; 
     color: white;
+    height: 100%;
 }
 
 #side-bar-list{

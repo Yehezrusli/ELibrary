@@ -1,6 +1,9 @@
 <?php
 	include("../../connection.php");
 	session_start();
+	if(!isset($_SESSION['uname'])){
+		header("Location:../general/login.php");
+	}
 	$uname = $_SESSION['uname'];
 	$query = "SELECT nama, stat FROM anggota WHERE username = '$uname'";	
 	if($res = $con->query($query)){
@@ -96,7 +99,7 @@
 				<input type="text" name="name" placeHolder="Name"><br>
 				<input type="text" name="phone" placeHolder="Phone"><br>
 				<input type="text" name="adress" placeHolder="Address"><br>
-				<input type="submit" name="register" id="register" value="REGISTER">
+				<input type="submit" name="register" id="button" value="REGISTER">
 			</form>
 		</div>
 	</div>

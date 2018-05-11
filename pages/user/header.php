@@ -1,7 +1,11 @@
 <?php
 	include("../../connection.php");
-	$uname = $_SESSION['uname'];
-	$query = "SELECT nama FROM anggota WHERE username = '$uname'";	
+	if(isset($_SESSION['uname'])){
+		$uname = $_SESSION['uname'];
+		$query = "SELECT nama FROM anggota WHERE username = '$uname'";	
+	}else{
+		header(	"Location:../user/usr.php");
+	}
 ?>
 <!DOCTYPE html>
 <html>

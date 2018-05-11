@@ -1,5 +1,8 @@
 <?php
 	include("../../connection.php");
+	if(!isset($_SESSION['uname'])){
+		header("Location:../general/login.php");
+	}
 	$uname = $_SESSION['uname'];
 	$query = "SELECT nama FROM anggota WHERE username = '$uname'";	
 ?>

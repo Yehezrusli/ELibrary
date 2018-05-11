@@ -21,7 +21,7 @@
 		$query2.= " WHERE $filterBy = '$filter'";
 	}
 	?>
-			<input id="button" onclick="blok()" style="font-size: 2vw;margin-left:0px ;padding: 1px;font-size: 1vw; float: right; margin-right: 3%; ; margin-top: 1.5%; margin-bottom: 10px;" type="submit" name="add" value="ADD BOOK">
+			<input id="button" onclick="blok()" style="font-size: 2vw;margin-left:0px ;padding: 1px;font-size: 1vw; float: right; margin-right: 3%; ; margin-top: 1.5%; margin-bottom: 10px; width: 7%" type="submit" name="add" value="ADD BOOK">
 			<form action="" method="get" id="search">
 				<h1 style="display:inline; margin-left:2%">Book List</h1>
 				<input id="button" style="font-size: 2vw;margin-left:0px ;padding: 1px;font-size: 1vw; float: right; margin-right: 1%; ; margin-top: 1.5%; margin-bottom: 10px;" type="submit" name="cari" value="Search">
@@ -38,6 +38,29 @@
 				<input name="filter" type="text" placeholder="Search books.." style="width:15%; margin: 0; height: 2vw;margin-top: 1.5%;float:right">
 			</form>
 		<div class="scrollable">
+		<?php
+			if(isset($_POST['add'])){
+				$judul = $_POST['judul'];
+				$pengarang = $_POST['pengarang'];
+				$tahun = $_POST['tahun'];
+				$penerbit = $_POST['penerbit'];
+				$kategory = $_POST['kategory'];
+				$insert = "INSERT INTO book(judul, pengarang, tahun, penerbit) VALUES('$judul', '$pengarang', $tahun, '$penerbit')";
+				$con->query($insert);
+				$code = "SELECT code FROM book WHERE judul = '$judul'";
+				if($res = $con->query($code)){
+					while($row = $res->fetch_array()){
+						$id = $row['code'];
+					}
+				}
+				$insert = "INSERT INTO kategorybuku(kategory, buku) VALUES ($kategory, $id)";
+				if($con->query($insert)){
+					echo '<p id="added">Book Added</p>';
+				}else{
+					echo '<p id="added">Please try again</p>';
+				}
+			}
+		?>
 			<table class="data">
 				<tr>
 					<th>Code</th>
@@ -91,26 +114,7 @@
 				</form>	
 			</div>
 	</div>
-	<?php
-		if(isset($_POST['add'])){
-			$judul = $_POST['judul'];
-			$pengarang = $_POST['pengarang'];
-			$tahun = $_POST['tahun'];
-			$penerbit = $_POST['penerbit'];
-			$kategory = $_POST['kategory'];
-			$insert = "INSERT INTO book(judul, pengarang, tahun, penerbit) VALUES('$judul', '$pengarang', $tahun, '$penerbit')";
-			$con->query($insert);
-			$code = "SELECT code FROM book WHERE judul = '$judul'";
-			if($res = $con->query($code)){
-				while($row = $res->fetch_array()){
-					$id = $row['code'];
-				}
-			}
-			$insert = "INSERT INTO kategorybuku(kategory, buku) VALUES ($kategory, $id)";
-			if($con->query($insert)){
-			}
-		}
-	?>
+	
 	<script>
         var modal = document.getElementById('myModal');
         var btn = document.getElementById("myBtn");

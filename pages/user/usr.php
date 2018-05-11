@@ -1,6 +1,9 @@
 <?php
 	include("../../connection.php");
 	session_start();
+	if(!isset($_SESSION['uname'])){
+		header("Location:../general/login.php");
+	}
 	$uname = $_SESSION['uname'];
 	$query = "SELECT nama, stat FROM anggota WHERE username = '$uname'";	
 	if($res = $con->query($query)){

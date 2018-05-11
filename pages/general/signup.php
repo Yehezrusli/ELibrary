@@ -50,7 +50,7 @@
 				margin-top: 10px;
 				margin-bottom: 10px;
 				width: 100%;
-				height: 20%;
+				height: 2vw;
 				padding-left: 10px;
 				font-size: 20px;
 			}
@@ -60,7 +60,7 @@
 				margin-top: 10px;
 				margin-bottom: 10px;
 				width: 100%;
-				height: 20%;
+				height: 2vw;
 				padding-left: 10px;
 				font-size: 20px;
 			}
@@ -73,15 +73,15 @@
 				background-color : black;
 				color: white;
 				margin-left: 10px;
-				font-size: 100%;
+				font-size: 1vw;
 				padding: 5px;
-				padding-left: 10px;
+				padding-left: 5px;
 				padding-right: 10px;	
 			}
 
 			input[type=submit] {
 				width: 20%;
-				height: 20%;
+				height: 2vw;
 				margin: 0;
 			}
 			
@@ -159,7 +159,7 @@
 
 		<div id="signup">
 			<h1>Create New Account</h1>
-			<form action="" method="post">
+			<form action="" method="post" id="daftar" style="height: 55%">
 				<input type="text" name="uname" placeHolder="Username"><br>
 				<input type="password" name="pass" placeHolder="Password"><br>
 				<input type="password" name="cpass" placeHolder="Confirm Password"><br>
@@ -169,6 +169,7 @@
 				<input type="submit" name="register" id="button" onsubmit="blok()" value="REGISTER">
 				<input type="submit" name="cancel" id="button" value="CANCEL">
 		</form>
+		<br>
 			<?php				
 				if(isset($_POST['register'])){
 					if(isset($_POST['uname']) && !empty($_POST['uname'])){
@@ -197,11 +198,10 @@
 							$queryCheck="SELECT username FROM anggota WHERE username = '$uname'";
 							$res = $con->query($queryCheck);
 							if($res->num_rows != 0){
-								echo '<br>';
-								echo '<br>';
-								echo '<br>';
+								echo "<div>";
 								echo '<p class="exception">Username has already exist</p>';
 								echo '<p class="exception">Please use other username</p>';
+								echo '</div>';
 							}else{
 							$query = "INSERT INTO anggota(username, pass, nama, telepon, alamat, stat) VALUES ('$uname', '$hidepass', '$nama', '$phone', '$alamat', 'usr')";
 							if($con->query($query)){
